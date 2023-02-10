@@ -22,7 +22,6 @@ function PostList() {
 
   return (
     <div>
-      <h1>Post list</h1>
       {postList.map((post) => (
         <Post post={post} key={post.id} />
       ))}
