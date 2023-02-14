@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Card, Button, Form, Input, notification } from "antd";
 import { SmileOutlined, FrownOutlined } from "@ant-design/icons";
 import useLocalStorage from "../../utils/useLocalStorage";
@@ -8,9 +8,16 @@ import { setToken, useAppContext } from "../../store";
 
 export default function Login() {
   const { dispatch } = useAppContext();
+  const location = useLocation();
   const navigate = useNavigate();
   // const [jwtToken, setJwtToken] = useLocalStorage("jwtToken", "");
   const [fieldErrors, setFieldErrors] = useState({});
+
+  console.log("location.state: ", location.state);
+
+  const { from: loginRedirectUrl } = location.state || {
+    from: { pathname: "/" },
+  };
 
   const onFinish = (values) => {
     async function fn() {

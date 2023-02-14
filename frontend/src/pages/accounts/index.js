@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Profile from "./Profile";
 import Login from "./Login";
 import Signup from "./Signup";
+import LoginRequiredRoute from "../../utils/LoginRequiredRoute";
 
 function AccountsRoutes() {
   return (
