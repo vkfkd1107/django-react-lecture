@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+import collections
 
+if not hasattr(collections, "Callable"):
+    collections.Callable = collections.abc.Callable
 from datetime import timedelta
 import os
 from os.path import abspath, dirname, join
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_jwt",
     "rest_framework_jwt.blacklist",
+    "django_pydenticon",
     # local apps
     "accounts",
     "instagram",
